@@ -28,4 +28,17 @@ class RequestFactory {
         let errorParser = makeErrorParser()
         return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
+    
+    func makeAuthRequestFatory(customErrorParser: AbstractErrorParser) -> AuthRequestFactory {
+        return Auth(errorParser: customErrorParser, sessionManager: commonSession, queue: sessionQueue)
+    }
+    
+    func makeCatalogRequestFactory() -> CatalogRequestFactory {
+        let errorParser = makeErrorParser()
+        return Catalog(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+    }
+    
+    func makeCatalogRequestFactory(customErrorParser: AbstractErrorParser) -> CatalogRequestFactory {
+        return Catalog(errorParser: customErrorParser, sessionManager: commonSession, queue: sessionQueue)
+    }
 }
