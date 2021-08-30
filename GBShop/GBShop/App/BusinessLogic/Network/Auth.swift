@@ -12,7 +12,7 @@ class Auth: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")
+    let baseUrl = URL(string: "https://boiling-anchorage-93413.herokuapp.com/")
     
     init(
         errorParser: AbstractErrorParser,
@@ -107,8 +107,8 @@ extension Auth {
     
     struct RegisterUser: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "registerUser.json"
+        let method: HTTPMethod = .post
+        let path: String = "register"
         
         let userId: Int
         let username: String
