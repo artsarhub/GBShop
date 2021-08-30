@@ -17,7 +17,9 @@ class ViewController: UIViewController {
 //        login()
 //        logout()
 //        registerUser()
-        changeUserData()
+//        changeUserData()
+        getCatalogData()
+        getGoodById()
     }
     
     func login() {
@@ -36,8 +38,8 @@ class ViewController: UIViewController {
         let auth = requestFactory.makeAuthRequestFatory()
         auth.logout(userId: 123) { response in
             switch response.result {
-            case .success(let login):
-                print(login)
+            case .success(let logout):
+                print(logout)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -54,8 +56,8 @@ class ViewController: UIViewController {
                           credit_card: "9872389-2424-234224-234",
                           bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
-            case .success(let login):
-                print(login)
+            case .success(let registerUser):
+                print(registerUser)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -72,8 +74,33 @@ class ViewController: UIViewController {
                             credit_card: "9872389-2424-234224-234",
                             bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
-            case .success(let login):
-                print(login)
+            case .success(let changeUserData):
+                print(changeUserData)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func getCatalogData() {
+        let catalog = requestFactory.makeCatalogRequestFactory()
+        catalog.getCatalogData(pageNumber: 1,
+                               categoryId: 1) { response in
+            switch response.result {
+            case .success(let catalogData):
+                print(catalogData)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func getGoodById() {
+        let catalog = requestFactory.makeCatalogRequestFactory()
+        catalog.getGoodById(productId: 123) { response in
+            switch response.result {
+            case .success(let goodById):
+                print(goodById)
             case .failure(let error):
                 print(error.localizedDescription)
             }
