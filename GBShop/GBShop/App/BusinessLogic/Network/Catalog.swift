@@ -12,7 +12,7 @@ class Catalog: AbstractRequestFactory {
     var errorParser: AbstractErrorParser
     var sessionManager: Session
     var queue: DispatchQueue
-    private let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")
+    private let baseUrl = URL(string: "https://boiling-anchorage-93413.herokuapp.com/")
     
     init(
         errorParser: AbstractErrorParser,
@@ -44,8 +44,8 @@ extension Catalog: CatalogRequestFactory {
 extension Catalog {
     struct GetCatalogData: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "catalogData.json"
+        let method: HTTPMethod = .post
+        let path: String = "catalogData"
         
         let pageNumber: Int
         let categoryId: Int
@@ -59,8 +59,8 @@ extension Catalog {
     
     struct GetGoodById: RequestRouter {
         var baseUrl: URL
-        var method: HTTPMethod = .get
-        var path: String = "getGoodById.json"
+        var method: HTTPMethod = .post
+        var path: String = "getGoodById"
         
         let productId: Int
         var parameters: Parameters? {

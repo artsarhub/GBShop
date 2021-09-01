@@ -18,8 +18,8 @@ class ViewController: UIViewController {
 //        logout()
 //        registerUser()
 //        changeUserData()
-        getCatalogData()
-        getGoodById()
+//        getCatalogData()
+//        getGoodById()
     }
     
     func login() {
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
                           password: "mypassword",
                           email: "some@some.ru",
                           gender: "m",
-                          credit_card: "9872389-2424-234224-234",
+                          creditCard: "9872389-2424-234224-234",
                           bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
             case .success(let registerUser):
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
                             password: "mypassword",
                             email: "some@some.ru",
                             gender: "m",
-                            credit_card: "9872389-2424-234224-234",
+                            creditCard: "9872389-2424-234224-234",
                             bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
             case .success(let changeUserData):
