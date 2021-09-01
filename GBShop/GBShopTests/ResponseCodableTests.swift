@@ -97,7 +97,7 @@ class ResponseCodableTests: XCTestCase {
                           password: "mypassword",
                           email: "some@some.ru",
                           gender: "m",
-                          credit_card: "9872389-2424-234224-234",
+                          creditCard: "9872389-2424-234224-234",
                           bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
             case .success(let registerUser): XCTAssertEqual(equivalentResult, registerUser)
@@ -114,7 +114,7 @@ class ResponseCodableTests: XCTestCase {
                             password: "mypassword",
                             email: "some@some.ru",
                             gender: "m",
-                            credit_card: "9872389-2424-234224-234",
+                            creditCard: "9872389-2424-234224-234",
                             bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
             case .success(let changeUserData): XCTAssertEqual(equivalentResult, changeUserData)

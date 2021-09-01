@@ -19,7 +19,7 @@ protocol AuthRequestFactory {
                       password: String,
                       email: String,
                       gender: String,
-                      credit_card: String,
+                      creditCard: String,
                       bio: String,
                       completionHandler: @escaping (AFDataResponse<RegisterUserResult>) -> Void)
     func changeUserData(userId: Int,
@@ -27,7 +27,7 @@ protocol AuthRequestFactory {
                         password: String,
                         email: String,
                         gender: String,
-                        credit_card: String,
+                        creditCard: String,
                         bio: String,
                         completionHandler: @escaping (AFDataResponse<ChangeUserDataResult>) -> Void)
 }

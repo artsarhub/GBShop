@@ -12,7 +12,7 @@ class Auth: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")
+    let baseUrl = URL(string: "https://boiling-anchorage-93413.herokuapp.com/")
     
     init(
         errorParser: AbstractErrorParser,
@@ -30,7 +30,7 @@ extension Auth: AuthRequestFactory {
                       password: String,
                       email: String,
                       gender: String,
-                      credit_card: String,
+                      creditCard: String,
                       bio: String,
                       completionHandler: @escaping (AFDataResponse<RegisterUserResult>) -> Void) {
         guard let baseUrl = baseUrl else { fatalError("Bad URL") }
@@ -40,7 +40,7 @@ extension Auth: AuthRequestFactory {
                                         password: password,
                                         email: email,
                                         gender: gender,
-                                        credit_card: credit_card,
+                                        creditCard: creditCard,
                                         bio: bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
@@ -50,7 +50,7 @@ extension Auth: AuthRequestFactory {
                         password: String,
                         email: String,
                         gender: String,
-                        credit_card: String,
+                        creditCard: String,
                         bio: String,
                         completionHandler: @escaping (AFDataResponse<ChangeUserDataResult>) -> Void) {
         guard let baseUrl = baseUrl else { fatalError("Bad URL") }
@@ -60,7 +60,7 @@ extension Auth: AuthRequestFactory {
                                         password: password,
                                         email: email,
                                         gender: gender,
-                                        credit_card: credit_card,
+                                        creditCard: creditCard,
                                         bio: bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
@@ -81,8 +81,8 @@ extension Auth: AuthRequestFactory {
 extension Auth {
     struct Login: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "login.json"
+        let method: HTTPMethod = .post
+        let path: String = "login"
         
         let login: String
         let password: String
@@ -96,8 +96,8 @@ extension Auth {
     
     struct Logout: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "logout.json"
+        let method: HTTPMethod = .post
+        let path: String = "logout"
         
         let userId: Int
         var parameters: Parameters? {
@@ -107,15 +107,15 @@ extension Auth {
     
     struct RegisterUser: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "registerUser.json"
+        let method: HTTPMethod = .post
+        let path: String = "register"
         
         let userId: Int
         let username: String
         let password: String
         let email: String
         let gender: String
-        let credit_card: String
+        let creditCard: String
         let bio: String
         var parameters: Parameters? {
             return [
@@ -124,7 +124,7 @@ extension Auth {
                 "password": password,
                 "email": email,
                 "gender": gender,
-                "credit_card": credit_card,
+                "credit_card": creditCard,
                 "bio": bio
             ]
         }
@@ -132,15 +132,15 @@ extension Auth {
     
     struct ChangeUserData: RequestRouter {
         var baseUrl: URL
-        var method: HTTPMethod = .get
-        var path: String = "changeUserData.json"
+        var method: HTTPMethod = .post
+        var path: String = "changeUserData"
         
         let userId: Int
         let username: String
         let password: String
         let email: String
         let gender: String
-        let credit_card: String
+        let creditCard: String
         let bio: String
         var parameters: Parameters? {
             return [
@@ -149,7 +149,7 @@ extension Auth {
                 "password": password,
                 "email": email,
                 "gender": gender,
-                "credit_card": credit_card,
+                "credit_card": creditCard,
                 "bio": bio
             ]
         }
