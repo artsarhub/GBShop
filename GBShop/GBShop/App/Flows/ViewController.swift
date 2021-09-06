@@ -13,16 +13,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        login()
-//        logout()
-//        registerUser()
-//        changeUserData()
-//        getCatalogData()
-//        getGoodById()
+        //        login()
+        //        logout()
+        //        registerUser()
+        //        changeUserData()
+        //        getCatalogData()
+        //        getGoodById()
+        getReviews()
+        addReview()
+        deleteReview()
     }
     
     func login() {
-        let auth = requestFactory.makeAuthRequestFatory()
+        let auth = requestFactory.makeAuthRequestFactory()
         auth.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
             case .success(let login):
@@ -34,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     func logout() {
-        let auth = requestFactory.makeAuthRequestFatory()
+        let auth = requestFactory.makeAuthRequestFactory()
         auth.logout(userId: 123) { response in
             switch response.result {
             case .success(let logout):
@@ -46,7 +49,7 @@ class ViewController: UIViewController {
     }
     
     func registerUser() {
-        let auth = requestFactory.makeAuthRequestFatory()
+        let auth = requestFactory.makeAuthRequestFactory()
         auth.registerUser(userId: 123,
                           username: "Somebody",
                           password: "mypassword",
@@ -64,7 +67,7 @@ class ViewController: UIViewController {
     }
     
     func changeUserData() {
-        let auth = requestFactory.makeAuthRequestFatory()
+        let auth = requestFactory.makeAuthRequestFactory()
         auth.changeUserData(userId: 123,
                             username: "Somebody",
                             password: "mypassword",
@@ -100,6 +103,47 @@ class ViewController: UIViewController {
             switch response.result {
             case .success(let goodById):
                 print(goodById)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func getReviews() {
+        let review = requestFactory.makeReviewRequestFactory()
+        review.getReviews(pageNumber: 1,
+                          productId: 123) { response in
+            switch response.result {
+            case .success(let reviews):
+                print(reviews)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func addReview() {
+        let review = requestFactory.makeReviewRequestFactory()
+        review.addReview(productId: 123,
+                         authorId: 321,
+                         starsCount: 4,
+                         description: "Есть небольшие недостатки, но товаром доволен.") { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func deleteReview() {
+        let review = requestFactory.makeReviewRequestFactory()
+        review.deleteReview(productId: 123,
+                            authorId: 321) { response in
+            switch response.result {
+            case .success(let reviews):
+                print(reviews)
             case .failure(let error):
                 print(error.localizedDescription)
             }

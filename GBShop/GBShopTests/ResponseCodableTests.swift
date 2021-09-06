@@ -63,7 +63,7 @@ class ResponseCodableTests: XCTestCase {
     }
     
     func testLoginResult() {
-        let auth = requestFactory.makeAuthRequestFatory(customErrorParser: errorParser)
+        let auth = requestFactory.makeAuthRequestFactory(customErrorParser: errorParser)
         let equivalentResult = LoginResult(result: 1,
                                            user: GBShop.User(id: 123,
                                                              login: "geekbrains",
@@ -79,7 +79,7 @@ class ResponseCodableTests: XCTestCase {
     }
     
     func testLogoutResult() {
-        let auth = requestFactory.makeAuthRequestFatory(customErrorParser: errorParser)
+        let auth = requestFactory.makeAuthRequestFactory(customErrorParser: errorParser)
         let equivalentResult = LogoutResult(result: 1)
         auth.logout(userId: 123) { response in
             switch response.result {
@@ -90,7 +90,7 @@ class ResponseCodableTests: XCTestCase {
     }
     
     func testRegisterUserResult() {
-        let auth = requestFactory.makeAuthRequestFatory(customErrorParser: errorParser)
+        let auth = requestFactory.makeAuthRequestFactory(customErrorParser: errorParser)
         let equivalentResult = RegisterUserResult(result: 1, userMessage: "Регистрация прошла успешно!")
         auth.registerUser(userId: 123,
                           username: "Somebody",
@@ -107,7 +107,7 @@ class ResponseCodableTests: XCTestCase {
     }
     
     func testChangeUserDataResult() {
-        let auth = requestFactory.makeAuthRequestFatory(customErrorParser: errorParser)
+        let auth = requestFactory.makeAuthRequestFactory(customErrorParser: errorParser)
         let equivalentResult = ChangeUserDataResult(result: 1)
         auth.changeUserData(userId: 123,
                             username: "Somebody",
