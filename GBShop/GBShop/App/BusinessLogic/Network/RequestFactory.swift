@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class RequestFactory {
-    
     func makeErrorParser() -> AbstractErrorParser {
         return ErrorParser()
     }

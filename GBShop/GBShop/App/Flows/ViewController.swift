@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     private let requestFactory = RequestFactory()
     
     override func viewDidLoad() {
