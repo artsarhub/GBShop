@@ -70,8 +70,8 @@ extension Review {
         let productId: Int
         var parameters: Parameters? {
             return [
-                "product_id": 123,
-                "page_number": 1
+                "product_id": productId,
+                "page_number": pageNumber
             ]
         }
     }
@@ -101,8 +101,8 @@ extension Review {
         let authorId: Int
         var parameters: Parameters? {
             return [
-                "author_id": 321,
-                "product_id": 123
+                "author_id": authorId,
+                "product_id": productId
             ]
         }
     }
