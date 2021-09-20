@@ -13,15 +13,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        login()
-        //        logout()
-        //        registerUser()
-        //        changeUserData()
-        //        getCatalogData()
-        //        getGoodById()
-        getReviews()
-        addReview()
-        deleteReview()
+//        login()
+//        logout()
+//        registerUser()
+//        changeUserData()
+//        getCatalogData()
+//        getGoodById()
+//        getReviews()
+//        addReview()
+//        deleteReview()
+        addToBasket()
+        deleteFromBasket()
     }
     
     func login() {
@@ -109,6 +111,8 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - Review
+    
     func getReviews() {
         let review = requestFactory.makeReviewRequestFactory()
         review.getReviews(pageNumber: 1,
@@ -144,6 +148,32 @@ class ViewController: UIViewController {
             switch response.result {
             case .success(let reviews):
                 print(reviews)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // MARK: - Basket
+    
+    func addToBasket() {
+        let basket = requestFactory.makeBasketRequestFactory()
+        basket.addToBasket(productId: 123,
+                           quantity: 1) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func deleteFromBasket() {
+        let basket = requestFactory.makeBasketRequestFactory()
+        basket.deleteFromBasket(productId: 123) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
             case .failure(let error):
                 print(error.localizedDescription)
             }
