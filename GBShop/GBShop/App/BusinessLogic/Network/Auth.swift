@@ -14,10 +14,9 @@ class Auth: AbstractRequestFactory {
     let queue: DispatchQueue
     let baseUrl = URL(string: "https://boiling-anchorage-93413.herokuapp.com/")
     
-    init(
-        errorParser: AbstractErrorParser,
-        sessionManager: Session,
-        queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
+    init(errorParser: AbstractErrorParser,
+         sessionManager: Session,
+         queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
@@ -65,13 +64,16 @@ extension Auth: AuthRequestFactory {
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func logout(userId: Int, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
+    func logout(userId: Int,
+                completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
         guard let baseUrl = baseUrl else { fatalError("Bad URL") }
         let requestModel = Logout(baseUrl: baseUrl, userId: userId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
+    func login(userName: String,
+               password: String,
+               completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
         guard let baseUrl = baseUrl else { fatalError("Bad URL") }
         let requestModel = Login(baseUrl: baseUrl, login: userName, password: password)
         self.request(request: requestModel, completionHandler: completionHandler)

@@ -20,6 +20,11 @@
 		AC2E171F26CA8514000F00A4 /* LogoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E171E26CA8514000F00A4 /* LogoutResult.swift */; };
 		AC2E172126CA8B3A000F00A4 /* RegisterUserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E172026CA8B3A000F00A4 /* RegisterUserResult.swift */; };
 		AC2E172326CA8B53000F00A4 /* ChangeUserDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E172226CA8B53000F00A4 /* ChangeUserDataResult.swift */; };
+		AC835C2C26E624FD00292B3E /* ProductReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC835C2B26E624FD00292B3E /* ProductReview.swift */; };
+		AC835C2E26E6251800292B3E /* AddReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC835C2D26E6251800292B3E /* AddReviewResult.swift */; };
+		AC835C3026E6252600292B3E /* DeleteReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC835C2F26E6252600292B3E /* DeleteReviewResult.swift */; };
+		AC835C3226E6260C00292B3E /* ReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC835C3126E6260C00292B3E /* ReviewRequestFactory.swift */; };
+		AC835C3426E6261D00292B3E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC835C3326E6261D00292B3E /* Review.swift */; };
 		ACA1D11026D110AA00F3D622 /* ResponseCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1D10F26D110AA00F3D622 /* ResponseCodableTests.swift */; };
 		ACA1D11226D2537900F3D622 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1D11126D2537900F3D622 /* Catalog.swift */; };
 		ACA1D11426D254A800F3D622 /* CatalogRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA1D11326D254A800F3D622 /* CatalogRequestFactory.swift */; };
@@ -81,6 +86,11 @@
 		AC2E171E26CA8514000F00A4 /* LogoutResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResult.swift; sourceTree = "<group>"; };
 		AC2E172026CA8B3A000F00A4 /* RegisterUserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserResult.swift; sourceTree = "<group>"; };
 		AC2E172226CA8B53000F00A4 /* ChangeUserDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserDataResult.swift; sourceTree = "<group>"; };
+		AC835C2B26E624FD00292B3E /* ProductReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReview.swift; sourceTree = "<group>"; };
+		AC835C2D26E6251800292B3E /* AddReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewResult.swift; sourceTree = "<group>"; };
+		AC835C2F26E6252600292B3E /* DeleteReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteReviewResult.swift; sourceTree = "<group>"; };
+		AC835C3126E6260C00292B3E /* ReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRequestFactory.swift; sourceTree = "<group>"; };
+		AC835C3326E6261D00292B3E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		ACA1D10C26D10AAE00F3D622 /* GBShop.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = GBShop.xctestplan; path = /Users/artem/Documents/XCode/GeekBrains/GBShop/GBShop/GBShop/Resources/GBShop.xctestplan; sourceTree = "<absolute>"; };
 		ACA1D10D26D10AB200F3D622 /* UI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = UI.xctestplan; path = /Users/artem/Documents/XCode/GeekBrains/GBShop/GBShop/GBShop/Resources/UI.xctestplan; sourceTree = "<absolute>"; };
 		ACA1D10E26D10B3400F3D622 /* Unit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Unit.xctestplan; sourceTree = "<group>"; };
@@ -251,6 +261,9 @@
 				AC2E172226CA8B53000F00A4 /* ChangeUserDataResult.swift */,
 				ACA1D11526D255A100F3D622 /* CatalogDataResult.swift */,
 				ACA1D11726D256FE00F3D622 /* GetGoodByIdResult.swift */,
+				AC835C2B26E624FD00292B3E /* ProductReview.swift */,
+				AC835C2D26E6251800292B3E /* AddReviewResult.swift */,
+				AC835C2F26E6252600292B3E /* DeleteReviewResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -291,6 +304,8 @@
 				ACC9D71926C45E41009F6D24 /* RequestFactory.swift */,
 				ACA1D11126D2537900F3D622 /* Catalog.swift */,
 				ACA1D11326D254A800F3D622 /* CatalogRequestFactory.swift */,
+				AC835C3126E6260C00292B3E /* ReviewRequestFactory.swift */,
+				AC835C3326E6261D00292B3E /* Review.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -546,19 +561,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC835C3026E6252600292B3E /* DeleteReviewResult.swift in Sources */,
+				AC835C2E26E6251800292B3E /* AddReviewResult.swift in Sources */,
 				ACC9D71526C45E0A009F6D24 /* AuthRequestFactory.swift in Sources */,
 				ACC9D70E26C45929009F6D24 /* RequestRouter.swift in Sources */,
+				AC835C2C26E624FD00292B3E /* ProductReview.swift in Sources */,
 				ACA1D11426D254A800F3D622 /* CatalogRequestFactory.swift in Sources */,
 				AC2E171F26CA8514000F00A4 /* LogoutResult.swift in Sources */,
 				AC2E172326CA8B53000F00A4 /* ChangeUserDataResult.swift in Sources */,
 				AC2E172126CA8B3A000F00A4 /* RegisterUserResult.swift in Sources */,
 				ACC9D70C26C4590F009F6D24 /* AbstractRequestFactory.swift in Sources */,
+				AC835C3426E6261D00292B3E /* Review.swift in Sources */,
 				ACC9D71A26C45E41009F6D24 /* RequestFactory.swift in Sources */,
 				ACC9D70826C45670009F6D24 /* ErrorParser.swift in Sources */,
 				ACC9D70A26C45691009F6D24 /* ResponseCodable.swift in Sources */,
 				AC1E8F9326BFB752004B564B /* ViewController.swift in Sources */,
 				AC1E8F8F26BFB752004B564B /* AppDelegate.swift in Sources */,
 				ACC9D71026C45CB2009F6D24 /* LoginResult.swift in Sources */,
+				AC835C3226E6260C00292B3E /* ReviewRequestFactory.swift in Sources */,
 				AC1E8F9126BFB752004B564B /* SceneDelegate.swift in Sources */,
 				ACA1D11226D2537900F3D622 /* Catalog.swift in Sources */,
 				ACC9D71226C45CBB009F6D24 /* User.swift in Sources */,

@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class RequestFactory {
-    
     func makeErrorParser() -> AbstractErrorParser {
         return ErrorParser()
     }
@@ -24,12 +23,12 @@ class RequestFactory {
     
     let sessionQueue = DispatchQueue.global(qos: .utility)
     
-    func makeAuthRequestFatory() -> AuthRequestFactory {
+    func makeAuthRequestFactory() -> AuthRequestFactory {
         let errorParser = makeErrorParser()
         return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
     
-    func makeAuthRequestFatory(customErrorParser: AbstractErrorParser) -> AuthRequestFactory {
+    func makeAuthRequestFactory(customErrorParser: AbstractErrorParser) -> AuthRequestFactory {
         return Auth(errorParser: customErrorParser, sessionManager: commonSession, queue: sessionQueue)
     }
     
@@ -40,5 +39,10 @@ class RequestFactory {
     
     func makeCatalogRequestFactory(customErrorParser: AbstractErrorParser) -> CatalogRequestFactory {
         return Catalog(errorParser: customErrorParser, sessionManager: commonSession, queue: sessionQueue)
+    }
+    
+    func makeReviewRequestFactory() -> ReviewRequestFactory {
+        let errorParser = makeErrorParser()
+        return Review(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
 }

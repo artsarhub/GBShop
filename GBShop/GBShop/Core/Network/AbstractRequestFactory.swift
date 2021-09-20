@@ -19,7 +19,6 @@ protocol AbstractRequestFactory {
 }
 
 extension AbstractRequestFactory {
-    
     @discardableResult
     public func request<T: Decodable>(request: URLRequestConvertible,
                                       completionHandler: @escaping (AFDataResponse<T>) -> Void) -> DataRequest {

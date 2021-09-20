@@ -14,10 +14,9 @@ class Catalog: AbstractRequestFactory {
     var queue: DispatchQueue
     private let baseUrl = URL(string: "https://boiling-anchorage-93413.herokuapp.com/")
     
-    init(
-        errorParser: AbstractErrorParser,
-        sessionManager: Session,
-        queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
+    init(errorParser: AbstractErrorParser,
+         sessionManager: Session,
+         queue: DispatchQueue = DispatchQueue.global(qos: .utility)) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
